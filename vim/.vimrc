@@ -79,6 +79,10 @@ call plug#begin('~/.vim/plugged')
 
   Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
+  Plug 'rust-lang/rust.vim'
+
+  " Plug 'jianhmiao/auto-pairs'
+
 call plug#end()
 
 " }}}
@@ -87,6 +91,11 @@ call plug#end()
 " MAPPINGS --------------------------------------------------------------- {{{
 
 " insert new line below
+
+inoremap ( ()<Left>
+inoremap [ []<Left>
+inoremap { {}<Left>
+
 nnoremap o o<esc>
 nnoremap O O<esc>
 

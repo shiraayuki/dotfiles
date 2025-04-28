@@ -22,8 +22,16 @@ return require('packer').startup(function(use)
     'ibhagwan/fzf-lua',
     requires = { 'nvim-tree/nvim-web-devicons' },
   }
-  use 'windwp/nvim-autopairs'
 
+  use 'neovim/nvim-lspconfig'
+  use 'williamboman/mason.nvim'
+  use 'williamboman/mason-lspconfig.nvim'
+
+  use 'hrsh7th/nvim-cmp'
+  use 'hrsh7th/cmp-nvim-lsp'
+
+  use 'windwp/nvim-autopairs'
+  
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins
   if packer_bootstrap then

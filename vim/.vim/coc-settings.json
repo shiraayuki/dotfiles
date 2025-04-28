@@ -1,3 +1,15 @@
 {
-  "clangd.path": "~/.config/coc/extensions/coc-clangd-data/install/19.1.2/clangd_19.1.2/bin/clangd"
+  "languageserver": {
+    "rust": {
+      "command": "rust-analyzer",
+      "filetype": ["rust"],
+      "rootPatterns": ["Cargo.toml"]
+    }
+  },
+  "clangd.path": "~/.config/coc/extensions/coc-clangd-data/install/19.1.2/clangd_19.1.2/bin/clangd",
+  "clang.arguments": [
+    "--compile-commands-dir=./build",
+    "--header-insertion-never",
+    "--fallback-style=Google"
+  ]
 }

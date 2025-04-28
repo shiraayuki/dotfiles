@@ -1,5 +1,7 @@
 eval "$(starship init zsh)"
 
+export PATH=$PATH:/usr/local/go/bin
+
 # set the history file location
 HISTFILE=~/.zsh_history
 
