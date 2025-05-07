@@ -20,3 +20,8 @@ setopt inc_append_history
 
 # avoid duplicates in history
 setopt hist_ignore_all_dups
+
+# TeX Live 2025 
+export PATH=/usr/local/texlive/2025/bin/x86_64-linux:$PATH 
+export MANPATH=/usr/local/texlive/2025/texmf-dist/doc/man:$MANPATH
+export INFOPATH=/usr/local/texlive/2025/texmf-dist/doc/info:$INFOPATH
