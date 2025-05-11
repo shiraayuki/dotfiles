@@ -33,6 +33,8 @@ return require('packer').startup(function(use)
   use 'windwp/nvim-autopairs'
 
   use 'lervag/vimtex'
+
+  use 'stevearc/conform.nvim'
   
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins

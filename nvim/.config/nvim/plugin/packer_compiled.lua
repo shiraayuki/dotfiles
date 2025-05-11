@@ -84,6 +84,11 @@ _G.packer_plugins = {
     path = "/home/nwegerer/.local/share/nvim/site/pack/packer/start/cmp-nvim-lsp",
     url = "https://github.com/hrsh7th/cmp-nvim-lsp"
   },
+  ["conform.nvim"] = {
+    loaded = true,
+    path = "/home/nwegerer/.local/share/nvim/site/pack/packer/start/conform.nvim",
+    url = "https://github.com/stevearc/conform.nvim"
+  },
   ["fzf-lua"] = {
     loaded = true,
     path = "/home/nwegerer/.local/share/nvim/site/pack/packer/start/fzf-lua",
