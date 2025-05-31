@@ -2,6 +2,8 @@ eval "$(starship init zsh)"
 
 export PATH=$PATH:/usr/local/go/bin
 
+export PATH=$PATH:/home/nwegerer/Android/Sdk/platform-tools
+
 # set the history file location
 HISTFILE=~/.zsh_history
 
@@ -26,3 +28,6 @@ export PATH=/usr/local/texlive/2025/bin/x86_64-linux:$PATH
 export MANPATH=/usr/local/texlive/2025/texmf-dist/doc/man:$MANPATH
 export INFOPATH=/usr/local/texlive/2025/texmf-dist/doc/info:$INFOPATH
 export PATH="$HOME/.npm-global/bin:$PATH"
+export PATH="$HOME/.local/go/bin:$PATH"
+export PATH="$HOME/go/bin:$PATH"
+export PATH="$HOME/go/bin:$PATH"

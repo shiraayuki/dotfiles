@@ -1,3 +1,5 @@
+local Util = require("util")
+
 vim.g.mapleader = " "
 vim.g.maplocalleader = " "
 
@@ -18,3 +20,7 @@ vim.opt.expandtab = true
 
 vim.keymap.set("n", "<leader>h", ":nohlsearch<CR>")
 vim.keymap.set("n", "<leader>d", vim.diagnostic.open_float)
+
+vim.keymap.set("n", "<Esc>", function()
+	Util.close_floats()
+end, { desc = "Close floats" })
