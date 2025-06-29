@@ -18,6 +18,9 @@ vim.opt.shiftwidth = 2
 vim.opt.shiftround = true
 vim.opt.expandtab = true
 
+vim.o.encoding = "utf-8"
+vim.o.fileencoding = "utf-8"
+
 vim.keymap.set("n", "<leader>h", ":nohlsearch<CR>")
 vim.keymap.set("n", "<leader>d", vim.diagnostic.open_float)
 
