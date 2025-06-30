@@ -33,4 +33,13 @@ Util.build_and_install = function()
 	})
 end
 
+Util.toggle_format_on_save = function()
+  vim.g.format_on_save_enabled = not vim.g.format_on_save_enabled
+  if vim.g.format_on_save_enabled then
+    print("Format on Save: ENABLED")
+  else
+    print("Format on Save: DISABLED")
+  end
+end
+
 return Util

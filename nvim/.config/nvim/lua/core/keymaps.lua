@@ -24,6 +24,8 @@ vim.o.fileencoding = "utf-8"
 vim.keymap.set("n", "<leader>h", ":nohlsearch<CR>")
 vim.keymap.set("n", "<leader>d", vim.diagnostic.open_float)
 
+vim.keymap.set("n", "<leader>tf", Util.toggle_format_on_save, { desc = "Toggle Format on Save" })
+
 vim.keymap.set("n", "<Esc>", function()
 	Util.close_floats()
 end, { desc = "Close floats" })
