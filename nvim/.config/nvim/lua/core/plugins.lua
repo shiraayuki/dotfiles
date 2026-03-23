@@ -52,6 +52,29 @@ return require("packer").startup(function(use)
 
   use("stevearc/conform.nvim")
 
+  use {
+    "lervag/vimtex",
+    config = function()
+      vim.g.vimtex_view_method = "zathura"
+      vim.g.vimtex_compiler_method = "latexmk"
+      vim.g.vimtex_compiler_latexmk = {
+        aux_dir = "build",
+        out_dir = "build",
+        callback = 1,
+        continuous = 1,
+        executable = "latexmk",
+        options = {
+          "-pdf",
+          "-shell-escape",
+          "-verbose",
+          "-file-line-error",
+          "-synctex=1",
+          "-interaction=nonstopmode",
+        },
+      }
+    end
+  }
+
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins
   if packer_bootstrap then
