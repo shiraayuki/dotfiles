@@ -1,3 +1,4 @@
 nordpass-bin
 spotify
 yay-bin
+zapzap
