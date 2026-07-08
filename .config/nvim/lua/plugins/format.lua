@@ -9,7 +9,7 @@ return {
         "<leader>cf",
         function() require("conform").format({ async = true, lsp_format = "fallback" }) end,
         mode = { "n", "v" },
-        desc = "Formatieren",
+        desc = "Format",
       },
     },
     opts = {
@@ -39,8 +39,8 @@ return {
     init = function()
       vim.api.nvim_create_user_command("FormatToggle", function()
         vim.g.disable_autoformat = not vim.g.disable_autoformat
-        vim.notify("Format on save: " .. (vim.g.disable_autoformat and "AUS" or "AN"))
-      end, { desc = "Format-on-save umschalten" })
+        vim.notify("Format on save: " .. (vim.g.disable_autoformat and "off" or "on"))
+      end, { desc = "Toggle format on save" })
     end,
   },
 }

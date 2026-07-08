@@ -18,15 +18,15 @@ return {
       },
     },
     keys = {
-      { "<F5>", function() require("dap").continue() end, desc = "Debug: Start/Weiter" },
+      { "<F5>", function() require("dap").continue() end, desc = "Debug: Start/Continue" },
       { "<F10>", function() require("dap").step_over() end, desc = "Debug: Step Over" },
       { "<F11>", function() require("dap").step_into() end, desc = "Debug: Step Into" },
       { "<F12>", function() require("dap").step_out() end, desc = "Debug: Step Out" },
-      { "<leader>db", function() require("dap").toggle_breakpoint() end, desc = "Breakpoint umschalten" },
-      { "<leader>dB", function() require("dap").set_breakpoint(vim.fn.input("Bedingung: ")) end, desc = "Bedingter Breakpoint" },
-      { "<leader>du", function() require("dapui").toggle() end, desc = "Debug-UI umschalten" },
+      { "<leader>db", function() require("dap").toggle_breakpoint() end, desc = "Toggle breakpoint" },
+      { "<leader>dB", function() require("dap").set_breakpoint(vim.fn.input("Condition: ")) end, desc = "Conditional breakpoint" },
+      { "<leader>du", function() require("dapui").toggle() end, desc = "Toggle debug UI" },
       { "<leader>dr", function() require("dap").repl.toggle() end, desc = "Debug-REPL" },
-      { "<leader>dx", function() require("dap").terminate() end, desc = "Debug beenden" },
+      { "<leader>dx", function() require("dap").terminate() end, desc = "Stop debugging" },
     },
     config = function()
       local dap, dapui = require("dap"), require("dapui")
@@ -43,7 +43,7 @@ return {
       }
       dap.configurations.cpp = {
         {
-          name = "Programm starten",
+          name = "Launch program",
           type = "codelldb",
           request = "launch",
           program = function()

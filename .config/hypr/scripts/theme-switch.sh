@@ -41,7 +41,7 @@ else
 fi
 
 if [ -z "$choice" ] || [ "$choice" = "current" ] || [ ! -d "$THEMES_DIR/$choice" ]; then
-    notify-send -a Theme "Theme-Switcher" "Unbekanntes Theme: ${choice:-?}"
+    notify-send -a Theme "Theme switcher" "Unknown theme: ${choice:-?}"
     exit 1
 fi
 
@@ -62,4 +62,4 @@ swaync-client -rs >/dev/null 2>&1
 # Pass the resolved path so the current symlink does not get cached.
 hyprctl hyprpaper wallpaper ", $THEMES_DIR/$choice/wallpaper.png" >/dev/null 2>&1
 
-notify-send -a Theme "Theme gewechselt" "$(<"$THEMES_DIR/current/name") ist jetzt aktiv"
+notify-send -a Theme "Theme switched" "$(<"$THEMES_DIR/current/name") is now active"

@@ -6,7 +6,7 @@ if not (vim.uv or vim.loop).fs_stat(lazypath) then
     "https://github.com/folke/lazy.nvim.git", lazypath,
   })
   if vim.v.shell_error ~= 0 then
-    vim.api.nvim_echo({ { "lazy.nvim konnte nicht geklont werden:\n" .. out, "ErrorMsg" } }, true, {})
+    vim.api.nvim_echo({ { "Failed to clone lazy.nvim:\n" .. out, "ErrorMsg" } }, true, {})
     vim.fn.getchar()
     os.exit(1)
   end

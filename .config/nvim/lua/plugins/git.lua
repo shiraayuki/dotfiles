@@ -10,14 +10,14 @@ return {
           vim.keymap.set(mode, lhs, rhs, { buffer = buf, desc = desc })
         end
         -- Ö/Ä mirror the ö/ä diagnostics keys
-        bmap("n", "Ä", function() gs.nav_hunk("next") end, "Nächster Git-Hunk")
-        bmap("n", "Ö", function() gs.nav_hunk("prev") end, "Voriger Git-Hunk")
-        bmap("n", "<leader>gs", gs.stage_hunk, "Hunk stagen (nochmal = unstagen)")
-        bmap("n", "<leader>gr", gs.reset_hunk, "Hunk verwerfen")
-        bmap("v", "<leader>gs", function() gs.stage_hunk({ vim.fn.line("."), vim.fn.line("v") }) end, "Auswahl stagen")
-        bmap("v", "<leader>gr", function() gs.reset_hunk({ vim.fn.line("."), vim.fn.line("v") }) end, "Auswahl verwerfen")
-        bmap("n", "<leader>gp", gs.preview_hunk, "Hunk-Vorschau")
-        bmap("n", "<leader>gd", gs.diffthis, "Diff gegen Index")
+        bmap("n", "Ä", function() gs.nav_hunk("next") end, "Next git hunk")
+        bmap("n", "Ö", function() gs.nav_hunk("prev") end, "Previous git hunk")
+        bmap("n", "<leader>gs", gs.stage_hunk, "Stage hunk (again = unstage)")
+        bmap("n", "<leader>gr", gs.reset_hunk, "Reset hunk")
+        bmap("v", "<leader>gs", function() gs.stage_hunk({ vim.fn.line("."), vim.fn.line("v") }) end, "Stage selection")
+        bmap("v", "<leader>gr", function() gs.reset_hunk({ vim.fn.line("."), vim.fn.line("v") }) end, "Reset selection")
+        bmap("n", "<leader>gp", gs.preview_hunk, "Preview hunk")
+        bmap("n", "<leader>gd", gs.diffthis, "Diff against index")
       end,
     },
   },

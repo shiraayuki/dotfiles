@@ -12,7 +12,7 @@ return {
       },
     },
     keys = {
-      { "-", "<cmd>Oil<cr>", desc = "Dateimanager (Verzeichnis drüber)" },
+      { "-", "<cmd>Oil<cr>", desc = "File manager (parent dir)" },
     },
   },
   {
@@ -31,7 +31,7 @@ return {
     event = "VeryLazy",
     opts = {},
     keys = {
-      { "<leader>ft", "<cmd>TodoQuickFix<cr>", desc = "TODOs im Projekt" },
+      { "<leader>ft", "<cmd>TodoQuickFix<cr>", desc = "TODOs in project" },
     },
   },
   {
@@ -40,8 +40,8 @@ return {
     event = "VeryLazy",
     opts = {},
     keys = {
-      { "s", mode = { "n", "x", "o" }, function() require("flash").jump() end, desc = "Flash-Sprung" },
-      { "S", mode = { "n", "x", "o" }, function() require("flash").treesitter() end, desc = "Flash Treesitter-Auswahl" },
+      { "s", mode = { "n", "x", "o" }, function() require("flash").jump() end, desc = "Flash jump" },
+      { "S", mode = { "n", "x", "o" }, function() require("flash").treesitter() end, desc = "Flash treesitter selection" },
     },
   },
 }

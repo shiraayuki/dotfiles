@@ -20,12 +20,12 @@
     "widgets": ["title", "dnd", "mpris", "notifications"],
     "widget-config": {
         "title": {
-            "text": "Benachrichtigungen",
+            "text": "Notifications",
             "clear-all-button": true,
-            "button-text": "Alle löschen"
+            "button-text": "Clear all"
         },
         "dnd": {
-            "text": "Nicht stören"
+            "text": "Do not disturb"
         },
         "mpris": {
             "image-size": 80,

@@ -5,12 +5,12 @@ NAME="soundcore Space One"
 
 if bluetoothctl info "$MAC" 2>/dev/null | grep -q "Connected: yes"; then
     bluetoothctl disconnect "$MAC" >/dev/null \
-        && notify-send -a Bluetooth "󰂲 Getrennt" "$NAME"
+        && notify-send -a Bluetooth "󰂲 Disconnected" "$NAME"
 else
     bluetoothctl power on >/dev/null
     if bluetoothctl connect "$MAC" >/dev/null; then
-        notify-send -a Bluetooth "󰂱 Verbunden" "$NAME"
+        notify-send -a Bluetooth "󰂱 Connected" "$NAME"
     else
-        notify-send -u critical -a Bluetooth "Verbindung fehlgeschlagen" "$NAME einschalten und nochmal klicken"
+        notify-send -u critical -a Bluetooth "Connection failed" "Turn on $NAME and click again"
     fi
 fi

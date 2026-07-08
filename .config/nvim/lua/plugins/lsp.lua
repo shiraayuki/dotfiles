@@ -116,15 +116,15 @@ return {
           end
           bmap("n", "gd", function() Snacks.picker.lsp_definitions() end, "Definition")
           -- IDE style: Ctrl+click jumps to the definition, back with Ctrl+O
-          bmap("n", "<C-LeftMouse>", "<LeftMouse><cmd>lua vim.lsp.buf.definition()<cr>", "Definition (Strg+Klick)")
-          bmap("n", "gD", vim.lsp.buf.declaration, "Deklaration")
-          bmap("n", "grr", function() Snacks.picker.lsp_references() end, "Referenzen")
-          bmap("n", "gri", function() Snacks.picker.lsp_implementations() end, "Implementierungen")
-          bmap("n", "grt", function() Snacks.picker.lsp_type_definitions() end, "Typ-Definition")
-          bmap("n", "gO", function() Snacks.picker.lsp_symbols() end, "Symbole im Buffer")
-          bmap("n", "K", function() vim.lsp.buf.hover({ border = "rounded" }) end, "Hover-Doku")
-          bmap("n", "grn", vim.lsp.buf.rename, "Umbenennen")
-          bmap({ "n", "v" }, "gra", vim.lsp.buf.code_action, "Code-Action")
+          bmap("n", "<C-LeftMouse>", "<LeftMouse><cmd>lua vim.lsp.buf.definition()<cr>", "Definition (Ctrl+click)")
+          bmap("n", "gD", vim.lsp.buf.declaration, "Declaration")
+          bmap("n", "grr", function() Snacks.picker.lsp_references() end, "References")
+          bmap("n", "gri", function() Snacks.picker.lsp_implementations() end, "Implementations")
+          bmap("n", "grt", function() Snacks.picker.lsp_type_definitions() end, "Type definition")
+          bmap("n", "gO", function() Snacks.picker.lsp_symbols() end, "Symbols in buffer")
+          bmap("n", "K", function() vim.lsp.buf.hover({ border = "rounded" }) end, "Hover docs")
+          bmap("n", "grn", vim.lsp.buf.rename, "Rename")
+          bmap({ "n", "v" }, "gra", vim.lsp.buf.code_action, "Code action")
           -- clangd: jump between header and source
           bmap("n", "<leader>ch", "<cmd>LspClangdSwitchSourceHeader<cr>", "Header ↔ Source")
 
@@ -133,7 +133,7 @@ return {
           if client and client:supports_method("textDocument/inlayHint") then
             bmap("n", "<leader>th", function()
               vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled({ bufnr = ev.buf }), { bufnr = ev.buf })
-            end, "Inlay-Hints umschalten")
+            end, "Toggle inlay hints")
           end
         end,
       })

@@ -32,7 +32,7 @@
 
     "clock": {
         "format": "󰥔  {:%H:%M}",
-        "format-alt": "󰃭  {:%A, %d. %B %Y}",
+        "format-alt": "󰃭  {:%A, %d %B %Y}",
         "tooltip-format": "<tt><small>{calendar}</small></tt>",
         "calendar": {
             "mode": "month",
@@ -51,7 +51,7 @@
 
     "pulseaudio": {
         "format": "{icon} {volume}%",
-        "format-muted": "󰝟 aus",
+        "format-muted": "󰝟 off",
         "format-icons": { "default": ["󰕿", "󰖀", "󰕾"] },
         "on-click": "pamixer -t",
         "on-click-right": "pavucontrol",

@@ -30,21 +30,21 @@ return {
     },
     keys = {
       -- Pickers (fuzzy finder)
-      { "<leader><space>", function() Snacks.picker.smart() end, desc = "Dateien (smart)" },
-      { "<leader>ff", function() Snacks.picker.files() end, desc = "Dateien" },
-      { "<leader>fg", function() Snacks.picker.grep() end, desc = "Live-Grep" },
-      { "<leader>fb", function() Snacks.picker.buffers() end, desc = "Buffer" },
-      { "<leader>fr", function() Snacks.picker.recent() end, desc = "Zuletzt geöffnet" },
-      { "<leader>fh", function() Snacks.picker.help() end, desc = "Hilfe" },
+      { "<leader><space>", function() Snacks.picker.smart() end, desc = "Files (smart)" },
+      { "<leader>ff", function() Snacks.picker.files() end, desc = "Files" },
+      { "<leader>fg", function() Snacks.picker.grep() end, desc = "Live grep" },
+      { "<leader>fb", function() Snacks.picker.buffers() end, desc = "Buffers" },
+      { "<leader>fr", function() Snacks.picker.recent() end, desc = "Recent files" },
+      { "<leader>fh", function() Snacks.picker.help() end, desc = "Help" },
       { "<leader>fk", function() Snacks.picker.keymaps() end, desc = "Keymaps" },
-      { "<leader>fd", function() Snacks.picker.diagnostics() end, desc = "Diagnosen (Projekt)" },
-      { "<leader>fw", function() Snacks.picker.grep_word() end, desc = "Wort unterm Cursor suchen", mode = { "n", "x" } },
+      { "<leader>fd", function() Snacks.picker.diagnostics() end, desc = "Diagnostics (project)" },
+      { "<leader>fw", function() Snacks.picker.grep_word() end, desc = "Search word under cursor", mode = { "n", "x" } },
       -- Terminal & Git
       { "<C-t>", function() Snacks.terminal() end, desc = "Terminal", mode = { "n", "t" } },
       { "<leader>gg", function() Snacks.lazygit() end, desc = "Lazygit" },
-      { "<leader>gb", function() Snacks.git.blame_line() end, desc = "Blame für Zeile" },
+      { "<leader>gb", function() Snacks.git.blame_line() end, desc = "Blame line" },
       -- Misc
-      { "<leader>un", function() Snacks.notifier.hide() end, desc = "Notifications ausblenden" },
+      { "<leader>un", function() Snacks.notifier.hide() end, desc = "Hide notifications" },
     },
   },
   {
@@ -71,7 +71,7 @@ return {
     opts = {
       options = {
         diagnostics = "nvim_lsp",
-        offsets = { { filetype = "oil", text = "Dateien" } },
+        offsets = { { filetype = "oil", text = "Files" } },
       },
     },
     config = function(_, opts)
@@ -85,12 +85,12 @@ return {
     event = "VeryLazy",
     opts = {
       spec = {
-        { "<leader>f", group = "Finden" },
+        { "<leader>f", group = "Find" },
         { "<leader>g", group = "Git" },
         { "<leader>d", group = "Debug" },
         { "<leader>b", group = "Buffer" },
         { "<leader>c", group = "Code" },
-        { "<leader>t", group = "Umschalten" },
+        { "<leader>t", group = "Toggle" },
         { "<leader>u", group = "UI" },
       },
     },

@@ -1,12 +1,12 @@
 #!/usr/bin/env bash
 # Rofi power menu
 
-chosen=$(printf '󰌾  Sperren\n󰗽  Abmelden\n󰜉  Neustart\n󰐥  Herunterfahren' \
+chosen=$(printf '󰌾  Lock\n󰗽  Log out\n󰜉  Reboot\n󰐥  Shutdown' \
     | rofi -dmenu -p "󰐥 Power" -theme-str 'listview { lines: 4; }')
 
 case "$chosen" in
-    *Sperren)        hyprlock ;;
-    *Abmelden)       hyprctl dispatch exit ;;
-    *Neustart)       systemctl reboot ;;
-    *Herunterfahren) systemctl poweroff ;;
+    *Lock)       hyprlock ;;
+    *"Log out")  hyprctl dispatch exit ;;
+    *Reboot)     systemctl reboot ;;
+    *Shutdown)   systemctl poweroff ;;
 esac
