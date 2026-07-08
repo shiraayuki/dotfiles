@@ -6,6 +6,13 @@
 #   ./install.sh --links-only  symlinks only, no packages
 set -euo pipefail
 
+# Run as your normal user — the script calls sudo itself where needed.
+# As root, $HOME would be /root and all symlinks would end up there.
+if [ "$(id -u)" -eq 0 ]; then
+    echo "ERROR: don't run this with sudo/as root." >&2
+    exit 1
+fi
+
 DOTFILES="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 BACKUP=~/.config-backup-$(date +%Y%m%d-%H%M%S)
 
@@ -14,8 +21,10 @@ if [ "${1:-}" != "--links-only" ]; then
     if ! command -v pacman >/dev/null; then
         echo "==> No pacman found — skipping package installation."
     else
-        echo "==> Installing repo packages (pacman)"
-        sudo pacman -S --needed --noconfirm - < "$DOTFILES/packages.txt"
+        echo "==> Full system upgrade + repo packages (pacman)"
+        # -Syu in the same transaction: plain -S on an outdated system is a
+        # partial upgrade and aborts with "would break dependency" errors.
+        sudo pacman -Syu --needed --noconfirm - < "$DOTFILES/packages.txt"
 
         # Bootstrap yay if it's missing
         if ! command -v yay >/dev/null; then
