@@ -1,11 +1,38 @@
 #!/usr/bin/env bash
-# Dotfiles-Installer — verlinkt alle Configs aus diesem Repo ins Home-Verzeichnis.
+# Dotfiles-Installer — installiert Pakete und verlinkt alle Configs ins Home.
 # Vorhandene Dateien werden nach ~/.config-backup-<datum>/ gesichert.
+#
+#   ./install.sh               alles: Pakete + Symlinks
+#   ./install.sh --links-only  nur Symlinks, keine Pakete
 set -euo pipefail
 
 DOTFILES="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 BACKUP=~/.config-backup-$(date +%Y%m%d-%H%M%S)
 
+# ─── Pakete ────────────────────────────────────────────────────
+if [ "${1:-}" != "--links-only" ]; then
+    if ! command -v pacman >/dev/null; then
+        echo "==> Kein pacman gefunden — überspringe Paketinstallation."
+    else
+        echo "==> Installiere Repo-Pakete (pacman)"
+        sudo pacman -S --needed --noconfirm - < "$DOTFILES/packages.txt"
+
+        # yay bootstrappen, falls nicht vorhanden
+        if ! command -v yay >/dev/null; then
+            echo "==> yay fehlt — baue es aus dem AUR"
+            sudo pacman -S --needed --noconfirm base-devel git
+            builddir="$(mktemp -d)"
+            git clone https://aur.archlinux.org/yay-bin.git "$builddir/yay-bin"
+            (cd "$builddir/yay-bin" && makepkg -si --noconfirm)
+            rm -rf "$builddir"
+        fi
+
+        echo "==> Installiere AUR-Pakete (yay)"
+        yay -S --needed --noconfirm - < "$DOTFILES/packages-aur.txt"
+    fi
+fi
+
+# ─── Symlinks ──────────────────────────────────────────────────
 link() {
     local src="$1" dst="$2"
     # Zeigt der Link schon hierher? Dann nichts tun.
@@ -32,7 +59,4 @@ done
 link "$DOTFILES/.zshrc" ~/.zshrc
 
 echo
-echo "==> Fertig."
-echo "    Pakete installieren (Arch):"
-echo "      sudo pacman -S --needed - < $DOTFILES/packages.txt"
-echo "    (AUR-Pakete ggf. mit yay nachinstallieren)"
+echo "==> Fertig. Abmelden/neu einloggen bzw. Hyprland starten."

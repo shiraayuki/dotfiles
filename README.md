@@ -15,16 +15,20 @@ Arch Linux + Hyprland Setup (Catppuccin Mocha u. a. Themes, umschaltbar mit SUPE
 | `.config/themes` | Farbschemata (catppuccin-mocha, everforest, tokyonight-day) inkl. Wallpaper; `current` ist ein relativer Symlink aufs aktive Theme |
 | `.config/btop`, `fastfetch`, `lazygit`, `starship.toml` | Tools |
 | `.zshrc` | Zsh |
-| `packages.txt` | Explizit installierte Pakete (`pacman -Qqe`) |
+| `packages.txt` | Repo-Pakete (`pacman -Qqen`) |
+| `packages-aur.txt` | AUR-Pakete (`pacman -Qqem`) |
 
 ## Installation auf einem neuen System
 
 ```sh
 git clone <repo-url> ~/dotfiles
-cd ~/dotfiles
-./install.sh                                   # verlinkt alles, sichert Vorhandenes
-sudo pacman -S --needed - < packages.txt       # Pakete (AUR-Pakete schlagen fehl -> mit yay nachziehen)
+~/dotfiles/install.sh
 ```
+
+Das Script installiert alle Pakete (Repo via pacman, AUR via yay — yay wird bei
+Bedarf selbst aus dem AUR gebaut) und verlinkt dann die Configs; Vorhandenes wird
+nach `~/.config-backup-<datum>/` gesichert. Nur Symlinks, keine Pakete:
+`./install.sh --links-only`.
 
 Das Script legt Symlinks von `~/.config/...` auf dieses Repo. Änderungen an den Configs landen damit direkt im Repo — einfach committen.
 

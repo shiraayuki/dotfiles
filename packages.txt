@@ -37,7 +37,6 @@ linux-firmware
 neovim
 networkmanager
 nodejs
-nordpass-bin
 noto-fonts
 noto-fonts-emoji
 npm
@@ -61,7 +60,6 @@ rust
 sddm
 seahorse
 slurp
-spotify
 starship
 sudo
 swaync
@@ -76,6 +74,5 @@ wireplumber
 wl-clipboard
 xdg-desktop-portal-gtk
 xdg-desktop-portal-hyprland
-yay-bin
 yazi
 zsh
