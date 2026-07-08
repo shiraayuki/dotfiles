@@ -1,4 +1,4 @@
--- Optik & QoL: snacks.nvim (Dashboard, Picker, Notifications, …), lualine, bufferline
+-- Looks & QoL: snacks.nvim (dashboard, picker, notifications, …), lualine, bufferline
 return {
   {
     "folke/snacks.nvim",
@@ -24,12 +24,12 @@ return {
       bigfile = { enabled = true },
       statuscolumn = { enabled = true },
       input = { enabled = true },
-      words = { enabled = true }, -- Vorkommen des Worts unterm Cursor markieren
+      words = { enabled = true }, -- highlight occurrences of the word under the cursor
       terminal = {},
       lazygit = {},
     },
     keys = {
-      -- Picker (Fuzzy-Finder)
+      -- Pickers (fuzzy finder)
       { "<leader><space>", function() Snacks.picker.smart() end, desc = "Dateien (smart)" },
       { "<leader>ff", function() Snacks.picker.files() end, desc = "Dateien" },
       { "<leader>fg", function() Snacks.picker.grep() end, desc = "Live-Grep" },
@@ -43,7 +43,7 @@ return {
       { "<C-t>", function() Snacks.terminal() end, desc = "Terminal", mode = { "n", "t" } },
       { "<leader>gg", function() Snacks.lazygit() end, desc = "Lazygit" },
       { "<leader>gb", function() Snacks.git.blame_line() end, desc = "Blame für Zeile" },
-      -- Sonstiges
+      -- Misc
       { "<leader>un", function() Snacks.notifier.hide() end, desc = "Notifications ausblenden" },
     },
   },
@@ -75,7 +75,7 @@ return {
       },
     },
     config = function(_, opts)
-      -- Catppuccin liefert fertige Bufferline-Highlights (seit v1.10 unter special.*)
+      -- Catppuccin ships ready-made bufferline highlights (under special.* since v1.10)
       opts.highlights = require("catppuccin.special.bufferline").get_theme()
       require("bufferline").setup(opts)
     end,

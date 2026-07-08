@@ -1,9 +1,9 @@
 "$schema" = 'https://starship.rs/config-schema.json'
 
-# ─── Starship — Catppuccin Mocha Kapseln ───────────────────────
-# Jedes Modul ist eine eigene abgerundete Kapsel. Leere Module
-# rendern gar nicht. Braucht eine Nerd Font (CaskaydiaCove NF).
-# Generiert via gen_starship.py (Unicode-Escapes fuer die Glyphen).
+# ─── Starship — Catppuccin Mocha capsules ──────────────────────
+# Each module is its own rounded capsule. Empty modules don't
+# render at all. Needs a Nerd Font (CaskaydiaCove NF).
+# Generated via gen_starship.py (unicode escapes for the glyphs).
 
 add_newline = true
 palette = 'catppuccin_mocha'
@@ -26,7 +26,7 @@ $dotnet\
 $cmd_duration\
 $line_break$character"""
 
-# Rechtsbuendig auf der ersten Zeile
+# Right-aligned on the first line
 right_format = "$time"
 
 [username]
@@ -60,7 +60,7 @@ style = "bg:sapphire fg:crust"
 format = "[](fg:sapphire)[$symbol $branch]($style)[](fg:sapphire) "
 
 [git_status]
-# Eigene Kapsel in Peach — erscheint nur, wenn es wirklich Status gibt
+# Its own capsule in peach — only shows up when there is actual status
 style = "bg:peach fg:crust"
 format = "([](fg:peach)[$all_status$ahead_behind]($style)[](fg:peach) )"
 

@@ -1,10 +1,10 @@
 local opt = vim.opt
 
--- Leader muss vor lazy.nvim gesetzt sein
+-- Leader must be set before lazy.nvim
 vim.g.mapleader = " "
 vim.g.maplocalleader = "\\"
 
--- Zeilen & Darstellung
+-- Lines & appearance
 opt.number = true
 opt.relativenumber = true
 opt.cursorline = true
@@ -16,17 +16,17 @@ opt.wrap = false
 opt.list = true
 opt.listchars = { tab = "» ", trail = "·", nbsp = "␣" }
 opt.fillchars = { eob = " " }
-opt.colorcolumn = "80" -- dezente Linie bei 80 Zeichen, rein visuell
+opt.colorcolumn = "80" -- subtle line at 80 chars, purely visual
 opt.winborder = "rounded"
 
--- Einrückung (Python-Standard, clangd/clang-format regeln C/C++)
+-- Indentation (Python default; clangd/clang-format handle C/C++)
 opt.expandtab = true
 opt.tabstop = 4
 opt.shiftwidth = 4
 opt.softtabstop = 4
 opt.smartindent = true
 
--- Suche
+-- Search
 opt.ignorecase = true
 opt.smartcase = true
 opt.inccommand = "split"
@@ -35,7 +35,7 @@ opt.inccommand = "split"
 opt.splitright = true
 opt.splitbelow = true
 
--- Verhalten
+-- Behavior
 opt.clipboard = "unnamedplus" -- Wayland via wl-clipboard
 opt.undofile = true
 opt.swapfile = false

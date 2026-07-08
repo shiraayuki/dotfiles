@@ -1,6 +1,6 @@
-/* swaync — Farben kommen vom aktiven Theme (SUPER+SHIFT+T) */
+/* swaync — colors come from the active theme (SUPER+SHIFT+T) */
 
-@import url("/home/nwegerer/.config/themes/current/swaync.css");
+@import url("../themes/current/swaync.css");
 
 * {
     font-family: "CaskaydiaCove Nerd Font", "Noto Sans", sans-serif;

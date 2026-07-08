@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# Rofi-Power-Menü
+# Rofi power menu
 
 chosen=$(printf '󰌾  Sperren\n󰗽  Abmelden\n󰜉  Neustart\n󰐥  Herunterfahren' \
     | rofi -dmenu -p "󰐥 Power" -theme-str 'listview { lines: 4; }')

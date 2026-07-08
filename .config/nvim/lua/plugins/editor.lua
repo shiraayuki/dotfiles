@@ -1,10 +1,10 @@
--- Editier-Helfer: Datei-Explorer, Klammern, Surround, TODO-Kommentare
+-- Editing helpers: file explorer, auto-pairs, surround, TODO comments
 return {
   {
-    -- Verzeichnisse wie einen Buffer editieren: Dateien umbenennen = Zeile ändern
+    -- Edit directories like a buffer: renaming a file = changing a line
     "stevearc/oil.nvim",
     dependencies = { "nvim-tree/nvim-web-devicons" },
-    lazy = false, -- muss netrw ersetzen können
+    lazy = false, -- must be able to replace netrw
     opts = {
       view_options = { show_hidden = true },
       keymaps = {
@@ -23,7 +23,7 @@ return {
   {
     "echasnovski/mini.surround",
     event = "VeryLazy",
-    opts = {}, -- sa = hinzufügen, sd = löschen, sr = ersetzen
+    opts = {}, -- sa = add, sd = delete, sr = replace
   },
   {
     "folke/todo-comments.nvim",
@@ -35,7 +35,7 @@ return {
     },
   },
   {
-    -- f/t über Zeilen hinweg + Sprung-Labels mit s
+    -- f/t across lines + jump labels with s
     "folke/flash.nvim",
     event = "VeryLazy",
     opts = {},

@@ -1,4 +1,4 @@
--- Formatieren beim Speichern: ruff (Python), clang-format (C/C++), stylua (Lua)
+-- Format on save: ruff (Python), clang-format (C/C++), stylua (Lua)
 return {
   {
     "stevearc/conform.nvim",
@@ -26,10 +26,10 @@ return {
         yaml = { "prettierd", "prettier", stop_after_first = true },
         go = { "goimports", "gofumpt" },
         sh = { "shfmt" },
-        -- rust/java/kotlin: formatiert der jeweilige LSP (lsp_format = "fallback")
+        -- rust/java/kotlin: formatted by their LSP (lsp_format = "fallback")
       },
       format_on_save = function(bufnr)
-        -- Abschaltbar pro Buffer/global über :FormatToggle
+        -- Can be turned off per buffer/globally via :FormatToggle
         if vim.g.disable_autoformat or vim.b[bufnr].disable_autoformat then
           return
         end

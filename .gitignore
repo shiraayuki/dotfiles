@@ -1,2 +1,2 @@
-# Nvim-Plugin-Daten liegen in ~/.local/share, nichts weiter zu ignorieren ausser:
+# Nvim plugin data lives in ~/.local/share, nothing else to ignore except:
 .config/nvim/.luarc.json

@@ -1,4 +1,4 @@
--- Debugging: debugpy (Python) + codelldb (C/C++), UI mit nvim-dap-ui
+-- Debugging: debugpy (Python) + codelldb (C/C++), UI via nvim-dap-ui
 return {
   {
     "mfussenegger/nvim-dap",
@@ -12,7 +12,7 @@ return {
       {
         "mfussenegger/nvim-dap-python",
         config = function()
-          -- Mason-Installation von debugpy nutzen
+          -- Use the Mason installation of debugpy
           require("dap-python").setup(vim.fn.stdpath("data") .. "/mason/packages/debugpy/venv/bin/python")
         end,
       },
@@ -31,12 +31,12 @@ return {
     config = function()
       local dap, dapui = require("dap"), require("dapui")
 
-      -- UI automatisch öffnen/schließen
+      -- Open/close the UI automatically
       dap.listeners.after.event_initialized.dapui = function() dapui.open() end
       dap.listeners.before.event_terminated.dapui = function() dapui.close() end
       dap.listeners.before.event_exited.dapui = function() dapui.close() end
 
-      -- C/C++ über codelldb (liegt via Mason im PATH)
+      -- C/C++ via codelldb (on PATH through Mason)
       dap.adapters.codelldb = {
         type = "executable",
         command = "codelldb",
@@ -55,7 +55,7 @@ return {
       }
       dap.configurations.c = dap.configurations.cpp
 
-      -- Hübsche Breakpoint-Zeichen
+      -- Pretty breakpoint signs
       vim.fn.sign_define("DapBreakpoint", { text = "●", texthl = "DiagnosticError" })
       vim.fn.sign_define("DapStopped", { text = "▶", texthl = "DiagnosticWarn", linehl = "Visual" })
     end,

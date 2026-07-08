@@ -1,7 +1,7 @@
--- Neovim-Config für Python & C/C++
--- Struktur:
---   lua/config/   → Optionen, Keymaps, Autocmds, Plugin-Manager-Bootstrap
---   lua/plugins/  → ein File pro Themenbereich, wird von lazy.nvim geladen
+-- Neovim config for Python & C/C++
+-- Layout:
+--   lua/config/   → options, keymaps, autocmds, plugin manager bootstrap
+--   lua/plugins/  → one file per topic, loaded by lazy.nvim
 
 require("config.options")
 require("config.keymaps")

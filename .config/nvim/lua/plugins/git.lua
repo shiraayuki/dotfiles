@@ -1,4 +1,4 @@
--- Git: Änderungen im Gutter, Hunks stagen/verwerfen (Lazygit liegt in ui.lua bei snacks)
+-- Git: changes in the gutter, stage/discard hunks (lazygit lives in ui.lua with snacks)
 return {
   {
     "lewis6991/gitsigns.nvim",
@@ -9,7 +9,7 @@ return {
         local function bmap(mode, lhs, rhs, desc)
           vim.keymap.set(mode, lhs, rhs, { buffer = buf, desc = desc })
         end
-        -- Ö/Ä analog zu ö/ä bei Diagnostics
+        -- Ö/Ä mirror the ö/ä diagnostics keys
         bmap("n", "Ä", function() gs.nav_hunk("next") end, "Nächster Git-Hunk")
         bmap("n", "Ö", function() gs.nav_hunk("prev") end, "Voriger Git-Hunk")
         bmap("n", "<leader>gs", gs.stage_hunk, "Hunk stagen (nochmal = unstagen)")

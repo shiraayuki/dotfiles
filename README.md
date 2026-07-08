@@ -1,38 +1,39 @@
 # Dotfiles
 
-Arch Linux + Hyprland Setup (Catppuccin Mocha u. a. Themes, umschaltbar mit SUPER+SHIFT+T).
+Arch Linux + Hyprland setup (Catppuccin Mocha and other themes, switchable with SUPER+SHIFT+T).
 
-## Enthalten
+## What's inside
 
-| Pfad | Was |
+| Path | What |
 |---|---|
-| `.config/hypr` | Hyprland, hyprlock, hypridle, hyprpaper + Scripts (Theme-Switcher, Powermenu, BT-Headset) |
-| `.config/waybar` | Statusbar |
+| `.config/hypr` | Hyprland, hyprlock, hypridle, hyprpaper + scripts (theme switcher, power menu, BT headset) |
+| `.config/waybar` | Status bar |
 | `.config/kitty` | Terminal |
 | `.config/nvim` | Neovim |
 | `.config/rofi` | Launcher |
 | `.config/swaync` | Notifications |
-| `.config/themes` | Farbschemata (catppuccin-mocha, everforest, tokyonight-day) inkl. Wallpaper; `current` ist ein relativer Symlink aufs aktive Theme |
+| `.config/themes` | Color schemes (catppuccin-mocha, everforest, tokyonight-day) incl. wallpapers; `current` is a relative symlink to the active theme |
 | `.config/btop`, `fastfetch`, `lazygit`, `starship.toml` | Tools |
 | `.zshrc` | Zsh |
-| `packages.txt` | Repo-Pakete (`pacman -Qqen`) |
-| `packages-aur.txt` | AUR-Pakete (`pacman -Qqem`) |
+| `packages.txt` | Repo packages (`pacman -Qqen`) |
+| `packages-aur.txt` | AUR packages (`pacman -Qqem`) |
 
-## Installation auf einem neuen System
+## Installation on a new system
 
 ```sh
 git clone <repo-url> ~/dotfiles
 ~/dotfiles/install.sh
 ```
 
-Das Script installiert alle Pakete (Repo via pacman, AUR via yay — yay wird bei
-Bedarf selbst aus dem AUR gebaut) und verlinkt dann die Configs; Vorhandenes wird
-nach `~/.config-backup-<datum>/` gesichert. Nur Symlinks, keine Pakete:
+The script installs all packages (repo via pacman, AUR via yay — yay is built
+from the AUR itself if missing) and then symlinks the configs; anything already
+present is backed up to `~/.config-backup-<date>/`. Symlinks only, no packages:
 `./install.sh --links-only`.
 
-Das Script legt Symlinks von `~/.config/...` auf dieses Repo. Änderungen an den Configs landen damit direkt im Repo — einfach committen.
+The configs are symlinked from `~/.config/...` into this repo, so any change you
+make lands directly in the repo — just commit it.
 
-## Hinweise
+## Notes
 
-- Monitor-Setup in `hypr/hyprland.conf` ist auf DP-3 / 240 Hz zugeschnitten — auf anderer Hardware anpassen.
-- Font: CaskaydiaCove Nerd Font (in packages.txt enthalten).
+- The monitor setup in `hypr/hyprland.conf` is tailored to DP-3 / 240 Hz — adjust on other hardware.
+- Font: CaskaydiaCove Nerd Font (included in packages.txt).

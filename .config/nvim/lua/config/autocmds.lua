@@ -2,7 +2,7 @@ local aug = function(name)
   return vim.api.nvim_create_augroup("nikolas_" .. name, { clear = true })
 end
 
--- Kopierten Text kurz hervorheben
+-- Briefly highlight yanked text
 vim.api.nvim_create_autocmd("TextYankPost", {
   group = aug("yank"),
   callback = function()
@@ -10,7 +10,7 @@ vim.api.nvim_create_autocmd("TextYankPost", {
   end,
 })
 
--- Cursor-Position beim Öffnen wiederherstellen
+-- Restore cursor position when reopening a file
 vim.api.nvim_create_autocmd("BufReadPost", {
   group = aug("restore_cursor"),
   callback = function(ev)
@@ -22,10 +22,10 @@ vim.api.nvim_create_autocmd("BufReadPost", {
   end,
 })
 
--- C/C++: 2er-Einrückung ist Geschmackssache — Kernel-Style wäre 8, LLVM 2.
--- Wir bleiben bei 4 (Default), clang-format entscheidet eh beim Formatieren.
+-- C/C++: 2-space indent is a matter of taste — kernel style would be 8, LLVM 2.
+-- We stay at 4 (default); clang-format decides when formatting anyway.
 
--- Bestimmte Fenster mit q schließen
+-- Close certain windows with q
 vim.api.nvim_create_autocmd("FileType", {
   group = aug("close_with_q"),
   pattern = { "help", "qf", "checkhealth", "man", "notify" },

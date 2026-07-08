@@ -1,5 +1,5 @@
-/* Rofi — Farben kommen vom aktiven Theme (SUPER+SHIFT+T) */
-@import "/home/nwegerer/.config/themes/current/rofi.rasi"
+/* Rofi — colors come from the active theme (SUPER+SHIFT+T) */
+@import "~/.config/themes/current/rofi.rasi"
 
 configuration {
     modi: "drun,run";

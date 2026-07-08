@@ -21,7 +21,7 @@ export INFOPATH=/usr/local/texlive/2025/texmf-dist/doc/info:$INFOPATH
 # Tools
 export SUDO_EDITOR=nvim
 export EDITOR=nvim
-# Prompt — schlicht, ohne Starship: blaues Verzeichnis, grünes/rotes ❯
+# Prompt — simple, no starship: blue directory, green/red ❯
 setopt prompt_subst
 PROMPT='%F{blue}%~%f %(?.%F{green}.%F{red})❯%f '
 command -v direnv >/dev/null && eval "$(direnv hook zsh)"
@@ -33,25 +33,25 @@ alias claude='claude --dangerously-skip-permissions'
 # Completion
 autoload -Uz compinit && compinit
 
-# fzf — Ctrl+R history, Ctrl+T files, Alt+C dirs (aktiv sobald fzf installiert ist)
+# fzf — Ctrl+R history, Ctrl+T files, Alt+C dirs (active once fzf is installed)
 [[ -f /usr/share/fzf/key-bindings.zsh ]] && source /usr/share/fzf/key-bindings.zsh
 [[ -f /usr/share/fzf/completion.zsh   ]] && source /usr/share/fzf/completion.zsh
 
-# zoxide — smarter cd (aktiv sobald installiert)
+# zoxide — smarter cd (active once installed)
 command -v zoxide >/dev/null && eval "$(zoxide init zsh --cmd cd)"
 
-# Keybinds: Ctrl+←/→ wortweise springen, Ctrl+Backspace/Entf wortweise löschen
+# Keybinds: Ctrl+←/→ jump by word, Ctrl+Backspace/Del delete by word
 bindkey '^[[1;5C' forward-word
 bindkey '^[[1;5D' backward-word
 bindkey '^H' backward-kill-word
 bindkey '^[[3;5~' kill-word
 
-# Inline-Vorschläge & Syntax-Highlighting (aktiv sobald installiert)
+# Inline suggestions & syntax highlighting (active once installed)
 [[ -f /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh ]] \
     && source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
 [[ -f /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh ]] \
     && source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
-# Greeter — nur in Top-Level-Shells
+# Greeter — only in top-level shells
 [[ $SHLVL -eq 1 ]] && command -v fastfetch >/dev/null && fastfetch
 export PATH="$HOME/.local/bin:$PATH"

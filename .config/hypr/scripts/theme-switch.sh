@@ -1,13 +1,13 @@
 #!/usr/bin/env bash
-# Theme-Switcher — schaltet Hyprland, Waybar, Kitty, Rofi, swaync,
-# Hyprlock und Wallpaper in einem Rutsch um.
-# Aufruf: theme-switch.sh [theme-ordner]   (ohne Argument: Rofi-Menü)
+# Theme switcher — switches Hyprland, Waybar, Kitty, Rofi, swaync,
+# Hyprlock and the wallpaper in one go.
+# Usage: theme-switch.sh [theme-dir]   (no argument: Rofi menu)
 set -uo pipefail
 
 THEMES_DIR="$HOME/.config/themes"
 current="$(basename "$(readlink -f "$THEMES_DIR/current")")"
 
-# Verfügbare Themes einsammeln (Ordner mit name-Datei, ohne current-Symlink)
+# Collect available themes (dirs with a name file, minus the current symlink)
 slugs=() names=()
 for dir in "$THEMES_DIR"/*/; do
     slug="$(basename "$dir")"
@@ -47,19 +47,19 @@ fi
 
 [ "$choice" = "$current" ] && exit 0
 
-# Relativer Link, damit das Dotfiles-Repo auf jedem System funktioniert
+# Relative link so the dotfiles repo works on any system
 ln -sfn "$choice" "$THEMES_DIR/current"
 
 hyprctl reload >/dev/null
 if pgrep -x waybar >/dev/null; then
-    pkill -SIGUSR2 waybar    # Waybar: Style neu laden
+    pkill -SIGUSR2 waybar    # Waybar: reload style
 else
-    hyprctl dispatch exec waybar >/dev/null   # Waybar wiederbeleben, falls abgestürzt
+    hyprctl dispatch exec waybar >/dev/null   # revive waybar if it crashed
 fi
-pkill -SIGUSR1 -x kitty      # Kitty: Config neu laden (färbt offene Terminals um)
+pkill -SIGUSR1 -x kitty      # Kitty: reload config (recolors open terminals)
 swaync-client -rs >/dev/null 2>&1
-# hyprpaper >= 0.8: "wallpaper" lädt selbst nach, preload/reload gibt es nicht mehr.
-# Aufgelösten Pfad übergeben, damit nicht der current-Symlink gecacht wird.
+# hyprpaper >= 0.8: "wallpaper" loads on its own; preload/reload are gone.
+# Pass the resolved path so the current symlink does not get cached.
 hyprctl hyprpaper wallpaper ", $THEMES_DIR/$choice/wallpaper.png" >/dev/null 2>&1
 
 notify-send -a Theme "Theme gewechselt" "$(<"$THEMES_DIR/current/name") ist jetzt aktiv"

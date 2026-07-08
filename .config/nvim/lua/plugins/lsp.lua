@@ -1,12 +1,12 @@
--- LSP: clangd (C/C++), basedpyright + ruff (Python), lua_ls (für die Config selbst)
--- Server werden über Mason installiert und von mason-lspconfig automatisch aktiviert.
+-- LSP: clangd (C/C++), basedpyright + ruff (Python), lua_ls (for this config itself)
+-- Servers are installed through Mason and enabled automatically by mason-lspconfig.
 return {
   {
     "mason-org/mason.nvim",
     opts = { ui = { border = "rounded" } },
   },
   {
-    -- installiert Tools, die keine LSP-Server sind (Formatter, Debugger)
+    -- installs tools that aren't LSP servers (formatters, debuggers)
     "WhoIsSethDaniel/mason-tool-installer.nvim",
     dependencies = { "mason-org/mason.nvim" },
     opts = {
@@ -24,7 +24,7 @@ return {
       "saghen/blink.cmp",
     },
     config = function()
-      -- Capabilities von blink.cmp an alle Server geben
+      -- Hand blink.cmp capabilities to all servers
       vim.lsp.config("*", {
         capabilities = require("blink.cmp").get_lsp_capabilities(),
       })
@@ -44,14 +44,14 @@ return {
         settings = {
           basedpyright = {
             analysis = {
-              typeCheckingMode = "standard", -- "strict" wäre für den Anfang nervig
+              typeCheckingMode = "standard", -- "strict" would be annoying to start with
             },
           },
         },
       })
 
       vim.lsp.config("ruff", {
-        -- Hover macht basedpyright, ruff nur Linting/Code-Actions
+        -- basedpyright handles hover; ruff only linting/code actions
         on_attach = function(client)
           client.server_capabilities.hoverProvider = false
         end,
@@ -69,7 +69,7 @@ return {
       vim.lsp.config("rust_analyzer", {
         settings = {
           ["rust-analyzer"] = {
-            check = { command = "clippy" }, -- Clippy-Lints statt nur cargo check
+            check = { command = "clippy" }, -- clippy lints instead of plain cargo check
           },
         },
       })
@@ -92,7 +92,7 @@ return {
         },
       })
 
-      -- Diagnostics-Optik
+      -- Diagnostics appearance
       vim.diagnostic.config({
         severity_sort = true,
         virtual_text = { spacing = 2, prefix = "●" },
@@ -107,7 +107,7 @@ return {
         },
       })
 
-      -- Keymaps, sobald ein LSP am Buffer hängt
+      -- Keymaps once an LSP attaches to the buffer
       vim.api.nvim_create_autocmd("LspAttach", {
         group = vim.api.nvim_create_augroup("nikolas_lsp", { clear = true }),
         callback = function(ev)
@@ -115,7 +115,7 @@ return {
             vim.keymap.set(mode, lhs, rhs, { buffer = ev.buf, desc = desc })
           end
           bmap("n", "gd", function() Snacks.picker.lsp_definitions() end, "Definition")
-          -- IDE-Style: Strg+Klick springt zur Definition, zurück mit Strg+O
+          -- IDE style: Ctrl+click jumps to the definition, back with Ctrl+O
           bmap("n", "<C-LeftMouse>", "<LeftMouse><cmd>lua vim.lsp.buf.definition()<cr>", "Definition (Strg+Klick)")
           bmap("n", "gD", vim.lsp.buf.declaration, "Deklaration")
           bmap("n", "grr", function() Snacks.picker.lsp_references() end, "Referenzen")
@@ -125,10 +125,10 @@ return {
           bmap("n", "K", function() vim.lsp.buf.hover({ border = "rounded" }) end, "Hover-Doku")
           bmap("n", "grn", vim.lsp.buf.rename, "Umbenennen")
           bmap({ "n", "v" }, "gra", vim.lsp.buf.code_action, "Code-Action")
-          -- clangd: zwischen Header und Source springen
+          -- clangd: jump between header and source
           bmap("n", "<leader>ch", "<cmd>LspClangdSwitchSourceHeader<cr>", "Header ↔ Source")
 
-          -- Inlay-Hints (Typen inline anzeigen) umschaltbar
+          -- Toggleable inlay hints (show types inline)
           local client = vim.lsp.get_client_by_id(ev.data.client_id)
           if client and client:supports_method("textDocument/inlayHint") then
             bmap("n", "<leader>th", function()

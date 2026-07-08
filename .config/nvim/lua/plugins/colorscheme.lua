@@ -1,4 +1,4 @@
--- Catppuccin Mocha — passend zum Hyprland-Rice
+-- Catppuccin Mocha — matching the Hyprland rice
 return {
   {
     "catppuccin/nvim",

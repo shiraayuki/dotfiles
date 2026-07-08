@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# Klick aufs Waybar-Bluetooth-Icon: soundcore Space One verbinden/trennen.
+# Click on the waybar bluetooth icon: connect/disconnect soundcore Space One.
 MAC="F4:9D:8A:A5:13:D0"
 NAME="soundcore Space One"
 

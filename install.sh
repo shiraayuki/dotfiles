@@ -1,25 +1,25 @@
 #!/usr/bin/env bash
-# Dotfiles-Installer — installiert Pakete und verlinkt alle Configs ins Home.
-# Vorhandene Dateien werden nach ~/.config-backup-<datum>/ gesichert.
+# Dotfiles installer — installs packages and symlinks all configs into $HOME.
+# Existing files are backed up to ~/.config-backup-<date>/.
 #
-#   ./install.sh               alles: Pakete + Symlinks
-#   ./install.sh --links-only  nur Symlinks, keine Pakete
+#   ./install.sh               everything: packages + symlinks
+#   ./install.sh --links-only  symlinks only, no packages
 set -euo pipefail
 
 DOTFILES="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 BACKUP=~/.config-backup-$(date +%Y%m%d-%H%M%S)
 
-# ─── Pakete ────────────────────────────────────────────────────
+# ─── Packages ──────────────────────────────────────────────────
 if [ "${1:-}" != "--links-only" ]; then
     if ! command -v pacman >/dev/null; then
-        echo "==> Kein pacman gefunden — überspringe Paketinstallation."
+        echo "==> No pacman found — skipping package installation."
     else
-        echo "==> Installiere Repo-Pakete (pacman)"
+        echo "==> Installing repo packages (pacman)"
         sudo pacman -S --needed --noconfirm - < "$DOTFILES/packages.txt"
 
-        # yay bootstrappen, falls nicht vorhanden
+        # Bootstrap yay if it's missing
         if ! command -v yay >/dev/null; then
-            echo "==> yay fehlt — baue es aus dem AUR"
+            echo "==> yay missing — building it from the AUR"
             sudo pacman -S --needed --noconfirm base-devel git
             builddir="$(mktemp -d)"
             git clone https://aur.archlinux.org/yay-bin.git "$builddir/yay-bin"
@@ -27,7 +27,7 @@ if [ "${1:-}" != "--links-only" ]; then
             rm -rf "$builddir"
         fi
 
-        echo "==> Installiere AUR-Pakete (yay)"
+        echo "==> Installing AUR packages (yay)"
         yay -S --needed --noconfirm - < "$DOTFILES/packages-aur.txt"
     fi
 fi
@@ -35,12 +35,12 @@ fi
 # ─── Symlinks ──────────────────────────────────────────────────
 link() {
     local src="$1" dst="$2"
-    # Zeigt der Link schon hierher? Dann nichts tun.
+    # Already pointing here? Nothing to do.
     if [ -L "$dst" ] && [ "$(readlink -f "$dst")" = "$(readlink -f "$src")" ]; then
         echo "  ok      $dst"
         return
     fi
-    # Existierendes wegsichern
+    # Back up anything that exists
     if [ -e "$dst" ] || [ -L "$dst" ]; then
         mkdir -p "$BACKUP"
         mv "$dst" "$BACKUP/"
@@ -51,7 +51,7 @@ link() {
     echo "  link    $dst"
 }
 
-echo "==> Verlinke Configs aus $DOTFILES"
+echo "==> Linking configs from $DOTFILES"
 
 for item in "$DOTFILES"/.config/*; do
     link "$item" ~/.config/"$(basename "$item")"
@@ -59,4 +59,4 @@ done
 link "$DOTFILES/.zshrc" ~/.zshrc
 
 echo
-echo "==> Fertig. Abmelden/neu einloggen bzw. Hyprland starten."
+echo "==> Done. Log out/in again or start Hyprland."

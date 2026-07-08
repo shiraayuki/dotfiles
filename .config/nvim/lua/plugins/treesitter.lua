@@ -1,5 +1,5 @@
--- Treesitter (main-Branch, neue API ab nvim 0.11+)
--- Parser werden kompiliert → braucht einen C-Compiler (gcc/clang)!
+-- Treesitter (main branch, new API as of nvim 0.11+)
+-- Parsers get compiled → needs a C compiler (gcc/clang)!
 local parsers = {
   "python", "c", "cpp", "cmake", "make",
   "lua", "vim", "vimdoc", "query",
@@ -25,7 +25,7 @@ return {
           local lang = vim.treesitter.language.get_lang(ev.match)
           if lang and vim.treesitter.language.add(lang) then
             vim.treesitter.start(ev.buf, lang)
-            -- Einrückung via Treesitter (Python profitiert deutlich)
+            -- Indentation via treesitter (Python benefits a lot)
             vim.bo[ev.buf].indentexpr = "v:lua.require'nvim-treesitter'.indentexpr()"
           end
         end,
