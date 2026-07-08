@@ -45,6 +45,12 @@ if [ "${1:-}" != "--links-only" ]; then
     sudo mkdir -p /usr/share/sddm/themes /etc/sddm.conf.d
     sudo cp -r "$DOTFILES/sddm/catppuccin-mocha" /usr/share/sddm/themes/
     sudo cp "$DOTFILES/sddm/10-theme.conf" /etc/sddm.conf.d/
+    # /etc/sddm.conf (main file) wins over conf.d on this system's sddm
+    # build, so a stray Current= line there (e.g. from an AUR theme's
+    # postinstall) silently shadows our conf.d override. Patch it too.
+    if [ -f /etc/sddm.conf ] && grep -q '^Current=' /etc/sddm.conf; then
+        sudo sed -i 's/^Current=.*/Current=catppuccin-mocha/' /etc/sddm.conf
+    fi
 fi
 
 # ─── Symlinks ──────────────────────────────────────────────────
