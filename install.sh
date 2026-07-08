@@ -56,7 +56,12 @@ echo "==> Linking configs from $DOTFILES"
 for item in "$DOTFILES"/.config/*; do
     link "$item" ~/.config/"$(basename "$item")"
 done
-link "$DOTFILES/.zshrc" ~/.zshrc
+for item in .zshrc .inputrc .clang-format; do
+    link "$DOTFILES/$item" ~/"$item"
+done
+
+mkdir -p ~/Pictures/Screenshots   # screenshot keybinds save here
 
 echo
-echo "==> Done. Log out/in again or start Hyprland."
+echo "==> Done. See README.md for the manual system steps"
+echo "    (locale, login shell, services), then log out/in or start Hyprland."

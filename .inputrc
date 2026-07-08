@@ -1,0 +1,5 @@
+# Readline (bash etc.): Ctrl+Backspace/Del delete by word, Ctrl+←/→ jump by word
+"\C-h": backward-kill-word
+"\e[3;5~": kill-word
+"\e[1;5C": forward-word
+"\e[1;5D": backward-word
