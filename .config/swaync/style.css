@@ -1,0 +1,106 @@
+/* swaync — Farben kommen vom aktiven Theme (SUPER+SHIFT+T) */
+
+@import url("/home/nwegerer/.config/themes/current/swaync.css");
+
+* {
+    font-family: "CaskaydiaCove Nerd Font", "Noto Sans", sans-serif;
+    font-size: 13px;
+}
+
+.notification-row {
+    outline: none;
+    margin: 4px;
+}
+
+.notification {
+    background: alpha(@base, 0.95);
+    border: 1px solid @surface0;
+    border-radius: 14px;
+    margin: 4px;
+    padding: 0;
+}
+
+.notification-content {
+    padding: 10px;
+    border-radius: 14px;
+}
+
+.notification.critical {
+    border: 1px solid @red;
+}
+
+.summary {
+    color: @accent2;
+    font-weight: 700;
+}
+
+.body {
+    color: @text;
+}
+
+.time {
+    color: @subtext;
+}
+
+.close-button {
+    background: @surface0;
+    color: @text;
+    border-radius: 100%;
+    margin: 6px;
+}
+
+.close-button:hover {
+    background: @red;
+    color: @crust;
+}
+
+.control-center {
+    background: alpha(@base, 0.95);
+    border: 1px solid @surface0;
+    border-radius: 14px;
+    padding: 8px;
+}
+
+.widget-title {
+    color: @accent;
+    font-size: 15px;
+    font-weight: 700;
+    margin: 6px;
+}
+
+.widget-title > button {
+    background: @surface0;
+    color: @text;
+    border: none;
+    border-radius: 10px;
+    padding: 4px 10px;
+}
+
+.widget-title > button:hover {
+    background: @surface1;
+}
+
+.widget-dnd {
+    color: @text;
+    margin: 6px;
+}
+
+.widget-dnd > switch {
+    background: @surface0;
+    border-radius: 12px;
+}
+
+.widget-dnd > switch:checked {
+    background: @accent;
+}
+
+.widget-mpris .widget-mpris-player {
+    background: @mantle;
+    border-radius: 14px;
+    padding: 8px;
+    margin: 6px;
+}
+
+.notification-group {
+    margin: 2px;
+}

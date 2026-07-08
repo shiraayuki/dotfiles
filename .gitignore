@@ -1,0 +1,2 @@
+# Nvim-Plugin-Daten liegen in ~/.local/share, nichts weiter zu ignorieren ausser:
+.config/nvim/.luarc.json

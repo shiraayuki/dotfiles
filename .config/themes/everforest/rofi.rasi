@@ -1,0 +1,13 @@
+/* Everforest — Rofi-Farben (generiert) */
+* {
+    base:     #2d353b;
+    mantle:   #272e33;
+    crust:    #232a2e;
+    text:     #d3c6aa;
+    subtext:  #9da9a0;
+    surface0: #3d484d;
+    surface1: #475258;
+    overlay:  #859289;
+    accent:   #a7c080;
+    accent2:  #83c092;
+}

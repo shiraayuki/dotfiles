@@ -1,0 +1,159 @@
+"$schema" = 'https://starship.rs/config-schema.json'
+
+# ─── Starship — Catppuccin Mocha Kapseln ───────────────────────
+# Jedes Modul ist eine eigene abgerundete Kapsel. Leere Module
+# rendern gar nicht. Braucht eine Nerd Font (CaskaydiaCove NF).
+# Generiert via gen_starship.py (Unicode-Escapes fuer die Glyphen).
+
+add_newline = true
+palette = 'catppuccin_mocha'
+
+format = """
+$username\
+$directory\
+$git_branch\
+$git_status\
+$c\
+$cpp\
+$rust\
+$golang\
+$nodejs\
+$python\
+$java\
+$kotlin\
+$php\
+$dotnet\
+$cmd_duration\
+$line_break$character"""
+
+# Rechtsbuendig auf der ersten Zeile
+right_format = "$time"
+
+[username]
+show_always = false
+style_user = "bg:mauve fg:crust"
+style_root = "bg:red fg:crust"
+format = "[](fg:mauve)[$user]($style)[](fg:mauve) "
+
+[directory]
+style = "bg:blue fg:crust"
+read_only = " 󰌾"
+read_only_style = "bg:blue fg:crust"
+format = "[](fg:blue)[$path]($style)[$read_only]($read_only_style)[](fg:blue) "
+truncation_length = 3
+truncation_symbol = "…/"
+
+[directory.substitutions]
+"~" = "󰋜"
+"Dokumente" = "󰈙"
+"Downloads" = ""
+"Musik" = "󰝚"
+"Bilder" = ""
+"Videos" = ""
+"Documents" = "󰈙"
+"Music" = "󰝚"
+"Pictures" = ""
+
+[git_branch]
+symbol = ""
+style = "bg:sapphire fg:crust"
+format = "[](fg:sapphire)[$symbol $branch]($style)[](fg:sapphire) "
+
+[git_status]
+# Eigene Kapsel in Peach — erscheint nur, wenn es wirklich Status gibt
+style = "bg:peach fg:crust"
+format = "([](fg:peach)[$all_status$ahead_behind]($style)[](fg:peach) )"
+
+[c]
+symbol = ""
+style = "bg:teal fg:crust"
+format = "[](fg:teal)[$symbol( $version)]($style)[](fg:teal) "
+
+[cpp]
+symbol = ""
+style = "bg:teal fg:crust"
+format = "[](fg:teal)[$symbol( $version)]($style)[](fg:teal) "
+
+[rust]
+symbol = ""
+style = "bg:teal fg:crust"
+format = "[](fg:teal)[$symbol( $version)]($style)[](fg:teal) "
+
+[golang]
+symbol = ""
+style = "bg:teal fg:crust"
+format = "[](fg:teal)[$symbol( $version)]($style)[](fg:teal) "
+
+[nodejs]
+symbol = ""
+style = "bg:teal fg:crust"
+format = "[](fg:teal)[$symbol( $version)]($style)[](fg:teal) "
+
+[python]
+symbol = ""
+style = "bg:teal fg:crust"
+format = "[](fg:teal)[$symbol( $version)(\\($virtualenv\\))]($style)[](fg:teal) "
+
+[java]
+symbol = ""
+style = "bg:teal fg:crust"
+format = "[](fg:teal)[$symbol( $version)]($style)[](fg:teal) "
+
+[kotlin]
+symbol = ""
+style = "bg:teal fg:crust"
+format = "[](fg:teal)[$symbol( $version)]($style)[](fg:teal) "
+
+[php]
+symbol = ""
+style = "bg:teal fg:crust"
+format = "[](fg:teal)[$symbol( $version)]($style)[](fg:teal) "
+
+[dotnet]
+symbol = "󰪮"
+style = "bg:teal fg:crust"
+format = "[](fg:teal)[$symbol( $tfm)]($style)[](fg:teal) "
+
+[cmd_duration]
+min_time = 2000
+style = "bg:surface0 fg:peach"
+format = "[](fg:surface0)[󱎫 $duration]($style)[](fg:surface0) "
+
+[time]
+disabled = false
+time_format = "%H:%M"
+style = "bg:surface0 fg:subtext0"
+format = "[](fg:surface0)[ $time]($style)[](fg:surface0)"
+
+[character]
+success_symbol = "[❯](bold green)"
+error_symbol = "[❯](bold red)"
+vimcmd_symbol = "[❮](bold mauve)"
+
+[palettes.catppuccin_mocha]
+rosewater = "#f5e0dc"
+flamingo = "#f2cdcd"
+pink = "#f5c2e7"
+mauve = "#cba6f7"
+red = "#f38ba8"
+maroon = "#eba0ac"
+peach = "#fab387"
+yellow = "#f9e2af"
+green = "#a6e3a1"
+teal = "#94e2d5"
+sky = "#89dceb"
+sapphire = "#74c7ec"
+blue = "#89b4fa"
+lavender = "#b4befe"
+text = "#cdd6f4"
+subtext1 = "#bac2de"
+subtext0 = "#a6adc8"
+overlay2 = "#9399b2"
+overlay1 = "#7f849c"
+overlay0 = "#6c7086"
+surface2 = "#585b70"
+surface1 = "#45475a"
+surface0 = "#313244"
+base = "#1e1e2e"
+mantle = "#181825"
+crust = "#11111b"

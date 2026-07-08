@@ -1,0 +1,112 @@
+/* Waybar — Farben kommen vom aktiven Theme (SUPER+SHIFT+T) */
+
+@import url("../themes/current/waybar.css");
+
+* {
+    font-family: "CaskaydiaCove Nerd Font", "Noto Sans", sans-serif;
+    font-size: 13px;
+    font-weight: 600;
+    min-height: 0;
+}
+
+window#waybar {
+    background: transparent;
+    color: @text;
+}
+
+.modules-left,
+.modules-center,
+.modules-right {
+    background: alpha(@base, 0.92);
+    border: 1px solid @surface0;
+    border-radius: 14px;
+    padding: 0 6px;
+}
+
+#workspaces {
+    padding: 0 4px;
+}
+
+#workspaces button {
+    padding: 0 6px;
+    margin: 3px 2px;
+    border-radius: 10px;
+    color: @overlay;
+    background: transparent;
+    transition: all 0.2s ease;
+}
+
+#workspaces button.empty {
+    color: @surface1;
+}
+
+#workspaces button.active {
+    color: @crust;
+    background: linear-gradient(45deg, @accent2, @accent);
+    padding: 0 14px;
+}
+
+#workspaces button.urgent {
+    color: @crust;
+    background: @red;
+}
+
+#workspaces button:hover {
+    color: @text;
+    background: @surface0;
+}
+
+#window {
+    color: @subtext;
+    padding: 0 12px;
+    font-weight: 400;
+}
+
+#clock {
+    color: @accent2;
+    padding: 0 14px;
+}
+
+#tray,
+#pulseaudio,
+#bluetooth,
+#network,
+#cpu,
+#memory,
+#custom-notification,
+#custom-power {
+    padding: 0 10px;
+    margin: 3px 1px;
+    border-radius: 10px;
+}
+
+#pulseaudio        { color: @orange; }
+#pulseaudio.muted  { color: @overlay; }
+#bluetooth         { color: @blue; }
+#bluetooth.disabled,
+#bluetooth.off     { color: @overlay; }
+#network           { color: @teal; }
+#network.disconnected { color: @red; }
+#cpu               { color: @green; }
+#memory            { color: @blue; }
+#custom-notification { color: @yellow; }
+
+#custom-power {
+    color: @crust;
+    background: linear-gradient(45deg, @red, @orange);
+    padding: 0 12px;
+    margin-right: 3px;
+}
+
+#tray > .passive { -gtk-icon-effect: dim; }
+#tray > .needs-attention { -gtk-icon-effect: highlight; }
+
+tooltip {
+    background: @mantle;
+    border: 1px solid @surface0;
+    border-radius: 10px;
+}
+
+tooltip label {
+    color: @text;
+}

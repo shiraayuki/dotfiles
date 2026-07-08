@@ -1,0 +1,13 @@
+/* Catppuccin Mocha — Rofi-Farben (generiert) */
+* {
+    base:     #1e1e2e;
+    mantle:   #181825;
+    crust:    #11111b;
+    text:     #cdd6f4;
+    subtext:  #a6adc8;
+    surface0: #313244;
+    surface1: #45475a;
+    overlay:  #6c7086;
+    accent:   #cba6f7;
+    accent2:  #b4befe;
+}
