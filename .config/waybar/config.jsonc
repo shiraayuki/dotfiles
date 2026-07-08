@@ -10,7 +10,7 @@
 
     "modules-left": ["hyprland/workspaces", "hyprland/window"],
     "modules-center": ["clock"],
-    "modules-right": ["tray", "pulseaudio", "bluetooth", "network", "cpu", "memory", "custom/notification", "custom/power"],
+    "modules-right": ["tray", "pulseaudio", "bluetooth", "network", "cpu", "memory", "disk", "custom/notification", "custom/power"],
 
     "hyprland/workspaces": {
         "format": "{icon}",
@@ -87,6 +87,14 @@
     "memory": {
         "format": "󰍛 {percentage}%",
         "interval": 5,
+        "on-click": "kitty -e btop"
+    },
+
+    "disk": {
+        "format": "󰋊 {percentage_used}%",
+        "path": "/",
+        "interval": 60,
+        "tooltip-format": "{used} of {total} used ({free} free)",
         "on-click": "kitty -e btop"
     },
 

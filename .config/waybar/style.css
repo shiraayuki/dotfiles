@@ -73,6 +73,7 @@ window#waybar {
 #network,
 #cpu,
 #memory,
+#disk,
 #custom-notification,
 #custom-power {
     padding: 0 10px;
@@ -89,6 +90,7 @@ window#waybar {
 #network.disconnected { color: @red; }
 #cpu               { color: @green; }
 #memory            { color: @blue; }
+#disk              { color: @accent; }
 #custom-notification { color: @yellow; }
 
 #custom-power {
