@@ -1,0 +1,9 @@
+[SddmGreeterTheme]
+Name=Catppuccin Mocha
+Description=Minimal Mocha theme in the hyprlock style
+Author=Nikolas
+Version=1.0
+Type=sddm-theme
+MainScript=Main.qml
+Theme-Id=catppuccin-mocha
+QtVersion=6

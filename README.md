@@ -17,6 +17,7 @@ Arch Linux + Hyprland setup (Catppuccin Mocha and other themes, switchable with 
 | `.zshrc` | Zsh |
 | `.inputrc` | Readline (Ctrl+Backspace/Del word deletion in bash etc.) |
 | `.clang-format` | Global fallback C/C++ style |
+| `sddm/` | SDDM login theme (installed to `/usr/share/sddm/themes` by install.sh) |
 | `packages.txt` | Repo packages (`pacman -Qqen`) |
 | `packages-aur.txt` | AUR packages (`pacman -Qqem`) |
 
@@ -55,9 +56,6 @@ chsh -s /usr/bin/zsh
 # Services:
 sudo systemctl enable --now bluetooth sddm
 ```
-
-SDDM theme: `/usr/share/sddm/themes/catppuccin-mocha` + `/etc/sddm.conf.d/10-theme.conf`
-are not part of this repo — without them SDDM just uses its default theme.
 
 ## Notes
 

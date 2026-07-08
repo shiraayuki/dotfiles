@@ -30,6 +30,12 @@ if [ "${1:-}" != "--links-only" ]; then
         echo "==> Installing AUR packages (yay)"
         yay -S --needed --noconfirm - < "$DOTFILES/packages-aur.txt"
     fi
+
+    # ─── SDDM theme (system-wide) ──────────────────────────────
+    echo "==> Installing SDDM theme"
+    sudo mkdir -p /usr/share/sddm/themes /etc/sddm.conf.d
+    sudo cp -r "$DOTFILES/sddm/catppuccin-mocha" /usr/share/sddm/themes/
+    sudo cp "$DOTFILES/sddm/10-theme.conf" /etc/sddm.conf.d/
 fi
 
 # ─── Symlinks ──────────────────────────────────────────────────
