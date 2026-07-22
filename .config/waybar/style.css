@@ -71,6 +71,7 @@ window#waybar {
 #pulseaudio,
 #bluetooth,
 #network,
+#custom-battery,
 #cpu,
 #memory,
 #disk,
@@ -88,6 +89,11 @@ window#waybar {
 #bluetooth.off     { color: @overlay; }
 #network           { color: @teal; }
 #network.disconnected { color: @red; }
+#custom-battery          { color: @green; }
+#custom-battery.warning  { color: @yellow; }
+#custom-battery.critical { color: @crust; background: @red; }
+#custom-battery.charging { color: @teal; }
+#custom-battery.desktop  { color: @accent2; }
 #cpu               { color: @green; }
 #memory            { color: @blue; }
 #disk              { color: @accent; }

@@ -10,7 +10,7 @@
 
     "modules-left": ["hyprland/workspaces", "hyprland/window"],
     "modules-center": ["clock"],
-    "modules-right": ["tray", "pulseaudio", "bluetooth", "network", "cpu", "memory", "disk", "custom/notification", "custom/power"],
+    "modules-right": ["tray", "pulseaudio", "bluetooth", "network", "cpu", "memory", "disk", "custom/battery", "custom/notification", "custom/power"],
 
     "hyprland/workspaces": {
         "format": "{icon}",
@@ -96,6 +96,15 @@
         "interval": 60,
         "tooltip-format": "{used} of {total} used ({free} free)",
         "on-click": "kitty -e btop"
+    },
+
+    "custom/battery": {
+        "format": "{}",
+        "return-type": "json",
+        "exec": "~/.config/hypr/scripts/battery.sh",
+        "interval": 15,
+        "signal": 8,
+        "on-click": "~/.config/hypr/scripts/power-mode.sh"
     },
 
     "custom/notification": {
