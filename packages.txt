@@ -31,6 +31,8 @@ kitty
 kotlin
 lazygit
 less
+lib32-mesa
+lib32-vulkan-radeon
 libnotify
 linux
 linux-firmware
@@ -61,14 +63,17 @@ sddm
 seahorse
 slurp
 starship
+steam
 sudo
 swaync
 tree-sitter-cli
 ttf-cascadia-code-nerd
+ttf-liberation
 unzip
 upower
 usbutils
 vim
+vulkan-radeon
 waybar
 wireplumber
 wl-clipboard

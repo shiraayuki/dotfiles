@@ -21,6 +21,12 @@ if [ "${1:-}" != "--links-only" ]; then
     if ! command -v pacman >/dev/null; then
         echo "==> No pacman found — skipping package installation."
     else
+        # Steam & 32-bit graphics drivers live in [multilib]
+        if grep -q '^#\[multilib\]' /etc/pacman.conf; then
+            echo "==> Enabling [multilib] repo in /etc/pacman.conf"
+            sudo sed -i '/^#\[multilib\]$/{s/^#//;n;s/^#//}' /etc/pacman.conf
+        fi
+
         echo "==> Full system upgrade + repo packages (pacman)"
         # -Syu in the same transaction: plain -S on an outdated system is a
         # partial upgrade and aborts with "would break dependency" errors.
